@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* color: #fff; */
+    /* background-color: #22BF6B; */
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+/* HEADER */
+header {
+    width: 100%;
+    height: 75px;
+    background-color: #22BF6B;
+}
+
+/* ------------------------------------------------------------------------- */
+/* MAIN */
+main {
+    width: 100%;
+    height: 800px;
+    
+}
+
+/* ------------------------------------------------------------------------- */
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #000
+}
