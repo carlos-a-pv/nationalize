@@ -75,4 +75,18 @@ footer {
 }
 footer p {
     color: #fff;
+    text-align: center;
+}
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-media a {
+    margin: 0 30px;  
+    margin-top: 10px;
+}
+.social-media a i{
+    font-size: 2rem;
+    color: white;
 }
