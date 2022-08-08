@@ -1,46 +1,59 @@
 // Capturar datos
-const buttonGo = document.getElementById('go')
+const buttonGo = document.getElementById('go');
+const inputName = document.getElementById('nombre')
+const results = document.getElementById('results');
+const google = 'https://www.google.com/?hl=es';
+// results.innerHTML = '';
 
-function capturar_nombre(){
-    let name = document.getElementById('nombre').value;
-    console.log(name)    
-    return name
-}
-function building_url(){
-    let url = ''
-    let name = capturar_nombre();
-    if (name != ''){
-        url = 'https://api.nationalize.io?name=' + name
-        console.log(url)
-    }
-    else{
-        alert("POR FAVOR INGRESE UN NOMBRE EN EL CAMPO");
-        console.log(url)
-    }
+buttonGo.addEventListener('click', ()=> {
+    let name = inputName.value;
+    results.innerHTML = '';
+    let url = '';
+    if (name === ''){
+        alert('Please enter a name.');
+    }else{
+        
+        url = 'https://api.nationalize.io?name=' + name;
+        // console.log(url);
+
+        fetch(url, {
+        })
+        .then(response => response.json())
+        .then(data => {
+	// debugger
+    //console.log(data);
+    //console.log(typeof(data.country));
+    console.log(data);
+    console.log(typeof(data.country.length));
+    if (data.country === 0){
+        console.log("No se encontraron resultados.");
+    }else{
+        for (const country of data.country) {
+            // console.log(country.country_id);
+            let itemList = document.createElement('li');
+            itemList.textContent = country.country_id ;
+            results.appendChild(itemList);
     
-    return url
-}
-let url = building_url()
-
-fetch(url, {
-
+            
+        }   
+    }
+        })
+    }
+    inputName.value = '';
 })
-.then(response => response.text())
-.then(data => {
-    debugger
-    console.log(data)
-})
+
+// function building_url(){
+//     let url = ''
+//     let name = capturar_nombre();
+//     if (name != ''){
+//         url = 'https://api.nationalize.io?name=' + name
+//         console.log(url)
+//     }
+//     else{
+//         alert("POR FAVOR INGRESE UN NOMBRE EN EL CAMPO");
+//         console.log(url)
+//     }
     
-
-
-
-
-
-// function building_url(name) {
-//     console.log(name)
+//     return url
 // }
-
-buttonGo.addEventListener('click', capturar_nombre)
-
-
-
+// let url = building_url()
