@@ -70,16 +70,25 @@ main button:hover {
 .results {
     background-color: #22BF6B;
     margin: 0 auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-evenly;
     width: 75%;
     border-radius: 12px;
 }
-.results ol li{
+.results ul li{
+    display: flex;
+}
+.results ul a{
     display: inline-flex;
     padding: 0 25px;
     margin: 10px 0;
-    font-size: 25px; 
+    font-size: 25px;
+    text-decoration: none;
+    color: inherit  
+}
+.results ul li a:hover{
+    text-decoration: underline; 
 }
 h3 {
     text-align: center;
@@ -91,6 +100,7 @@ h3 {
 footer {
     width: 100%;
     height: 100px;
+    /* margin-top: 100px; */
     background-color: #000
 }
 footer p {
@@ -110,3 +120,8 @@ footer p {
     font-size: 2rem;
     color: white;
 }
+/* media queries */
+@media (max-width: 400px) {
+    .footer {
+        margin-top: 100px;
+}}
